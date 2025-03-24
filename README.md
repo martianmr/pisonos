@@ -21,11 +21,13 @@ A Raspberry Pi based remote control and LCD display for Sonos (also a clock).
 ## Setup Instructions
 
 - Clone this repo somewhere where you can run bash and connect to your Pi.
-- Create a file in the root of the repo named *something*.cfg where *something* is the network address of your Pi.
+- Create a file in the root of the repo named *ip*.cfg where *ip* is the network address of your Pi.
 - Add this line to the file...  
     player='*name*'  
     ...where *name* is the room name of your Sonos target device.
-- Run install.sh.
+- Run...  
+  ./install.sh *ip*
+  ...where *ip* is the network address of your Pi.
 
 ## License
 
