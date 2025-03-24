@@ -1,0 +1,17 @@
+[Unit]
+Description=pisonos
+After=network.target multi-user.target
+
+[Service]
+Type=simple
+User=USER
+WorkingDirectory=HOMEDIR
+ExecStart=HOMEDIR/venv/bin/python -u HOMEDIR/pisonos.py
+Restart=always
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pisonos
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
