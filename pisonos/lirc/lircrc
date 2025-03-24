@@ -1,0 +1,130 @@
+begin
+  button = KEY_POWER
+  prog = sonosmonitor
+  config = power
+end
+
+begin
+  button = KEY_MODE
+  prog = sonosmonitor
+  config = mode
+end
+
+begin
+  button = KEY_MUTE
+  prog = sonosmonitor
+  config = mute
+end
+
+begin
+  button = KEY_PLAYPAUSE
+  prog = sonosmonitor
+  config = playpause
+end
+
+begin
+  button = KEY_PREVIOUS
+  prog = sonosmonitor
+  config = previous
+end
+
+begin
+  button = KEY_NEXT
+  prog = sonosmonitor
+  config = next
+end
+
+begin
+  button = KEY_BASSBOOST
+  prog = sonosmonitor
+  config = bassboost
+end
+
+begin
+  button = KEY_VOLUMEDOWN
+  prog = sonosmonitor
+  config = volumedown
+  repeat = 2
+  delay = 1
+end
+
+begin
+  button = KEY_VOLUMEUP
+  prog = sonosmonitor
+  config = volumeup
+  repeat = 2
+  delay = 1
+end
+
+begin
+  button = KEY_0
+  prog = sonosmonitor
+  config = 0
+end
+
+begin
+  button = KEY_SHUFFLE
+  prog = sonosmonitor
+  config = shuffle
+end
+
+begin
+  button = KEY_U
+  prog = sonosmonitor
+  config = u
+end
+
+begin
+  button = KEY_1
+  prog = sonosmonitor
+  config = 1
+end
+
+begin
+  button = KEY_2
+  prog = sonosmonitor
+  config = 2
+end
+
+begin
+  button = KEY_3
+  prog = sonosmonitor
+  config = 3
+end
+
+begin
+  button = KEY_4
+  prog = sonosmonitor
+  config = 4
+end
+
+begin
+  button = KEY_5
+  prog = sonosmonitor
+  config = 5
+end
+
+begin
+  button = KEY_6
+  prog = sonosmonitor
+  config = 6
+end
+
+begin
+  button = KEY_7
+  prog = sonosmonitor
+  config = 7
+end
+
+begin
+  button = KEY_8
+  prog = sonosmonitor
+  config = 8
+end
+
+begin
+  button = KEY_9
+  prog = sonosmonitor
+  config = 9
+end
+

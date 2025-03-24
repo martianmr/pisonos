@@ -1,0 +1,11 @@
+# Minimal pyproject.toml for lirc to allow local pip install
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ['readme', 'license', 'authors', 'classifiers', 'scripts']
+name = "lirc"
+version = "LIRCVERSION"
+description = "Interact with the daemon in the Linux Infrared Remote Control package"
+keywords = ["LIRC", "IR"]

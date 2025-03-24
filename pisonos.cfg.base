@@ -1,0 +1,5 @@
+[pisonos]
+player = default
+
+[LCD]
+rawgpio = no
