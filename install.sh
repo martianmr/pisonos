@@ -47,6 +47,7 @@ sed -r -i'' -e "s#(player .*=.)[^\s]*#\1${player}#" -e "s#(rawgpio .*=.)[^\s]*#\
 tar cvfz pisonos.tar.gz pisonos
 scp pisonos.tar.gz $USER@$IP:/home/$USER/
 ssh $USER@$IP tar xvfz pisonos.tar.gz
+ssh $USER@$IP rm pisonos.tar.gz
 if [ "$mode" == "quick" ]
 then
   ssh $USER@$IP sudo systemctl restart pisonos
