@@ -1,2 +1,2 @@
 # pisonos
-A Raapberry Pi based remote control and display for Sonos
+A Raspberry Pi based remote control and display for Sonos
