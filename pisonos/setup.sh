@@ -3,7 +3,7 @@
 # setup.sh
 #
 # bash script to setup pisonos
-# Usage: install.sh [-qu] ip_address [user]
+# Usage: setup.sh [-u]
 # -u update install, skips steps only required on first setup
 # default is to perform all steps needed on first setup
 
