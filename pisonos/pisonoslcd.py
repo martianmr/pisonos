@@ -36,7 +36,7 @@ def init():
             pin_rs=25,
             pin_rw=None,
             pin_e=24,
-            pins_data=[23, 17, 21, 22],
+            pins_data=[23, 17, 27, 22],
             numbering_mode=GPIO.BCM,
             cols=16,
             rows=2,
@@ -45,10 +45,11 @@ def init():
         )
         GPIO.output(backlight, True)
     else:
-        print("Using Adafruit LCD")
-        import Adafruit_CharLCD as LCD  # type: ignore
+        import board # type: ignore
+        from adafruit_character_lcd.character_lcd_rgb_i2c import Character_LCD_RGB_I2C # type: ignore
 
-        lcd = LCD.Adafruit_CharLCDPlate()
+        i2c = board.I2C() # Adafruit I2C RGB
+        lcd = Character_LCD_RGB_I2C(i2c, 16, 2)
         set_color(1.0, 1.0, 1.0)  # White
     clear()
 
@@ -91,7 +92,7 @@ def message(message_string):
         gpio_message_string = message_string.replace("\n", "\r\n")
         lcd.write_string(gpio_message_string)
     else:
-        lcd.message(message_string)
+        lcd.message = message_string
 
 
 def write_string(message_string):
@@ -111,8 +112,7 @@ def set_color(red, green, blue):
 
     global raw_gpio
     if not raw_gpio:
-        lcd.set_color(red, green, blue)
-
+        lcd.color = [red * 100, green * 100, blue * 100]
 
 def show_cursor(visible):
     """Show or hide the cursor."""
@@ -121,7 +121,7 @@ def show_cursor(visible):
     if raw_gpio:
         lcd.cursor_mode = "blink" if visible else "hide"
     else:
-        lcd.show_cursor(visible)
+        lcd.cursor = visible
 
 
 def enable_display(enabled):
@@ -129,4 +129,4 @@ def enable_display(enabled):
 
     global raw_gpio
     if raw_gpio:
-        lcd.display_enabled = enabled
+        lcd.display = enabled

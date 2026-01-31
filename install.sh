@@ -34,7 +34,7 @@ fi
 
 USER=${2:-pi}
 IP=$1
-rawgpio=no # rapgpio only needed for legacy build (without Adafruit LCD)
+rawgpio=no # rawgpio only needed for legacy build (without Adafruit LCD)
 player=UNDEFINED
 if [ ! -f $IP.cfg ]
 then

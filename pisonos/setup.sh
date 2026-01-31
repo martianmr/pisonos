@@ -35,19 +35,22 @@ USER=$(whoami)
 # Fixup file permissions
 find . -maxdepth 1 -type f -exec chmod 644 {} \;
 chmod +x setup.sh
+echo "=== CONFIGURING FIRMWARE ==="
+# Add i2c support for Adafruit
+sudo raspi-config nonint do_i2c 0
+# Increase i2c baud rate to 400kHz for better display response
+sudo sed -i -e 's/^dtparam=i2c_arm=on.*$/dtparam=i2c_arm=on,i2c_arm_baudrate=400000/' /boot/firmware/config.txt
+# Add lirc suport on GPIO pin 18
+grep gpio-ir /boot/firmware/config.txt || (echo 'dtoverlay=gpio-ir,gpio_pin=18' | sudo tee -a /boot/firmware/config.txt)
 if [ "$update" == "false" ]
 then
-  echo "=== CONFIGURING FIRMWARE ==="
-  # Add i2c support for Adafruit
-  sudo raspi-config nonint do_i2c 0
-  # Add lirc suport on GPIO pin 18
-  grep gpio-ir /boot/firmware/config.txt || (echo 'dtoverlay=gpio-ir,gpio_pin=18' | sudo tee -a /boot/firmware/config.txt)
   echo "=== INSTALLING PACKAGES ==="
   sudo apt-get -y update
   sudo apt-get -y install python3-lxml
   sudo apt-get -y install lirc
-  sudo apt-get -y install liblircclient-dev
   sudo apt-get -y install python3-dev
+  sudo apt-get -y install libxslt1-dev
+  sudo apt-get -y install liblirc-dev
 fi
 echo "=== SETTING UP LIRC ==="
 # Update the LIRC config files and restart lircd
@@ -89,6 +92,9 @@ then
   sudo reboot now
 else
   echo "=== STARTING PISONS ==="
+  sudo systemctl stop lircd
+  sudo systemctl restart lircd.socket
+  sudo systemctl start lircd
   sudo systemctl start pisonos
   systemctl status pisonos 
 fi
