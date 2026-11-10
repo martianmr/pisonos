@@ -1,5 +1,5 @@
 # coding: UTF-8
-"""pisonos.py - core module for Rasberry Pi Sonos Controller."""
+"""pisonos.py - core module for Raspberry Pi Sonos Controller."""
 
 from _version import __version__
 
@@ -198,7 +198,7 @@ def draw_big_number(num, pos):
     """Update the display buffer to draw a single large number (num) at position (pos) on the LCD display."""
 
     global NewLine1, NewLine2
-    # Data for arrangment of custom characters into large numbers used for clock
+    # Data for arrangement of custom characters into large numbers used for clock
     bignumber = (
         ((0, 3, 2), (4, 7, 6)),  # 0
         ((32, 3, 255), (32, 32, 255)),  # 1
@@ -347,7 +347,7 @@ def play_radio(index, canwrap=False):
 
 
 def power(param):
-    """Handle the power button, will play/pause or shutdown the Rasberry Pi if repeated."""
+    """Handle the power button, will play/pause or shutdown the Raspberry Pi if repeated."""
 
     global PowerTime, NewLine1, NewLine2
     state = sonos.get_current_transport_info()["current_transport_state"]
